@@ -1,0 +1,17 @@
+# 
+extra/*
+
+#
+test_[0-9a-zA-Z]*.*
+test.*
+# 
+slide/*
+
+#
+.vscode/**/*
+
+# ignoring extension
+.cph/**/*
+
+# ignoring output files
+*.out

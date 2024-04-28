@@ -223,6 +223,24 @@ vector<vector<int> > fourSum(vector<int> &arr, int k){
         }
         return ans;
     }
+
+// Finding the lowest common ancestor
+Node* lowest_common_ancestor(Node* root , int a , int b)
+    {
+        if(root == NULL || root->data == a || root->data == b)
+        return root;
+        
+        Node* left = lowest_common_ancestor(root->left , a , b);
+        Node* right = lowest_common_ancestor(root->right , a , b);
+        
+        if(left == NULL )
+        return right;
+        
+        else if(right == NULL )
+        return left;
+        
+        else return root;
+    }
 // Heap Sort
 #include<bits/stdc++.h>
 using namespace std;
@@ -293,4 +311,23 @@ int main(void)
 		solve<void>();
 	}
 }
+
+// Algorithm for finding number of swaps required where ans is the number of swaps and vec  is the in-order traversal of the tree.
+void Merge(int i,int j) {
+        if(i>=j)return;
+        
+        int mid=i+(j-i)/2;
+        Merge(i,mid);
+        Merge(mid+1,j);
+        
+        int k=mid+1, start=i;
+        while(i<k and k<=j) {
+            if(vec[i] <= vec[k])i++;
+            else {
+                vec+=mid-i+1;
+                k++;
+            }
+        }
+       sort(vec.begin() + start, vec.begin() + j + 1);
+    }
 */

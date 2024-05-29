@@ -1,39 +1,45 @@
-CONTENTS:
+## __CONTENTS__:
+<!-- AUTO-GENERATED-CONTENT:START (TOC:collapse=true&collapseText="Click to expand") -->
+<details>
+<summary>Index</summary>
 
-1. Header files
-2. Variables
-3. Data Structures
-4. Time Complexity
-5. Algorithms and techniques
-6. Question Types
+- [Header files](#headers)
+- [Variables](#variables)
+- [Data Structures](#structures)
+- [Time Complexity](#complexity)
+- [Algorithms](#algorithms)
+- [Question Types](#types)
+</details>
+<!-- AUTO-GENERATED-CONTENT:END -->
 
-1. HEADER FILES
+### Headers
 
-  <iostream.h>        : Header file for basic input and output.
-  <vector.h>          : Header file containing the vector data structure.
-  <bits/stdc++.h>     : It is a general header file which contains most of the tools required.
+  - `<iostream.h>`        : Header file for basic input and output.
+  - `<vector.h>`          : Header file containing the vector data structure.
+  - `<bits/stdc++.h>`     : It is a general header file which contains most of the tools required.
   
-  "using namespace std;"=It is a fundamental way of telling from where the header files come from.
+  - `using namespace std;`: It is a fundamental way of telling from where the header files come from.
 
-2. VARIABLES
+### Variables
 
-  They are nothing but containers to store data.
-  Available containers in cpp:
-    int           char    long long int    bool
-    short int     string  float            double    
+- They are nothing but containers to store data.
+- Available containers in cpp:
+  int           char    long long int    bool
+  short int     string  float            double    
 
-  SIZE_OF_VARIABLES:
-    char= 8 bits
-    int=   32 bits 
-    long long int= 64 bits
-    float= 32 bits
-    double= 64 bits
+- SIZE_OF_VARIABLES:
+  char= 8 bits
+  int=   32 bits 
+  long long int= 64 bits
+  float= 32 bits
+  double= 64 bits
 
-  Printing the value of the variable:
-    cout << var;
-  Loop and if/else conditionals Basics are similar to C.
+- Printing the value of the variable:
+  cout << var;
 
-3. DATA STRUCTURES
+- Loop and if/else conditionals Basics are similar to C.
+
+### Structures
 
   ARRAY:
     It is a data structure to store a specific type of data.
@@ -199,7 +205,7 @@ CONTENTS:
 		Iterating subsets     : O(2^n)
 		Iterating permutations: O(n!)
 
-5. ALGORITHMS & TECHNIQUES
+### Algorithms
 
 	Sorting Algorithms:
 		There are different type of sorting algorithms:-
@@ -239,7 +245,7 @@ CONTENTS:
   Frequency arrays:
     The frequency array of an array contain the number of times the element comes in the array.
 
-6. QUESTION TYPES
+### Types
 
   Greedy Algorithms:
     They are a type of problem where solution is derived from intuition and proved later on.
@@ -254,11 +260,3 @@ Sources:
   Geeks for geeks
   CSES problemsheet
   USACO
-
-Roadmap:
-  1. Advanced binary search 
-  2. Mathematical concepts like sieve, ETF.
-  3. DSA basic concepts sorts, 
-  4. Concepts such as graphs 
-  5. trees and traversal, searchs in tree, heaps in depth
-  6. Advance Features of c++ < preprocessing

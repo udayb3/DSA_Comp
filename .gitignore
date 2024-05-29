@@ -1,17 +1,13 @@
-# 
-extra/*
+# Ignoring the cph and vs code folder
+.cph/*
+.vscode/*
 
-#
+# Ignoring the test files
 test_[0-9a-zA-Z]*.*
 test.*
-# 
-slide/*
+test
+*/**/test
+*/**/test
 
-#
-.vscode/**/*
-
-# ignoring extension
-.cph/**/*
-
-# ignoring output files
-*.out
+# Some additional components
+extra/*

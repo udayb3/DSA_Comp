@@ -27,6 +27,7 @@ typedef map<char,int> mci;
 #define ALL(x) (x).begin(), (x).end()
 #define VSR(a,i,j) (a).begin()+i, (a).begin()+j
 
+
 template<typename T>
 T solve()
 {
@@ -42,3 +43,6 @@ int main()
   }
   return 0;
 }
+
+// Problems remaining:
+// Finding median in a row-wise sorted array

@@ -43,3 +43,21 @@ void Smatrix(vvl &arr, int n)
   }
 }
 ```
+## Searching in a Sorted array
+```
+bool MatSearch(vl vec, int m, int n, ll k)
+{
+  int i=0, j=n-1;
+  while(i<n && j>-1){
+    if(vec[i]==k)
+      return true;
+    else if(vec[i][j]<k){
+      j--;
+    }
+    else{
+      i++;
+    }
+  }
+  return false;
+}
+```

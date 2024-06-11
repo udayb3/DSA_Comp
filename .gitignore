@@ -3,7 +3,7 @@
 .vscode/*
 
 # Ignoring the test files
-test_[0-9a-zA-Z]*.*
+test[0-9a-zA-Z_]*.*
 test.*
 test
 */**/test

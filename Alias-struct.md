@@ -16,10 +16,7 @@ typedef set<int> si;
 typedef set<string> sstr;
 typedef map<int,int> mii;
 typedef map<char,int> mci;
-```
 
-## Defining some macros to be used for writing faster code
-```cpp
 #define NL "\n"
 #define SZ(v) ((int)v.size())
 #define PB push_back
@@ -29,6 +26,8 @@ typedef map<char,int> mci;
 #define PI 3.1415926535897
 #define ALL(x) (x).begin(), (x).end()
 #define VSR(a,i,j) (a).begin()+i, (a).begin()+j
+#define tin(arr, n) for(int i=0;i<n;i++){cin>>arr[i];}
+#define tout(arr,n) for(int i=0;i<n;i++){cout << arr[i]<<" ";}
 ```
 
 ## Code template
@@ -53,4 +52,18 @@ int main()
   }
   return 0;
 }
+```
+
+## Node for tree
+```cpp
+struct tnode
+{
+  ll dt;
+  tnode *lt;
+  tnode *rt;
+  tnode(ll val){
+    dt= val;
+    lt= NULL; rt=NULL;
+  }
+};
 ```

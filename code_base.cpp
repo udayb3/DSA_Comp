@@ -1,34 +1,4 @@
-/*    
-  #include<bits/stdc++.h>
-  using namespace std;
-  
-	typedef long long ll;
-  typedef vector<bool> vb;
-  typedef vector<int> vi;
-  typedef vector<long long> vll;
-  typedef pair<int,int> pii;
-  typedef pair<long long, long long> pll;
-  typedef vector<pair<int,int>> vpii;
-  typedef vector<pair<long long ,long long>> vpll;
-  typedef vector<pair<char,int>> vpci;
-  typedef set<int> si;
-  typedef map<int,int> mii;
-  typedef map<char,int> mci;
-  
-	#define SZ(v) ((int)v.size())
-  #define PB push_back
-  #define MP make_pair
-  #define F first
-  #define S second
-  #define PI 3.1415926535897
-  #define all(x) (x).begin(), (x).end()
-  
-	template<typename T>
-  T solve()
-  {
-
-  }
-
+/*
 // Tower of Hanoi: Printing the steps
 	void ToH(ll n, vpi &vc, int st, int mid, int en)
 	{
@@ -139,26 +109,6 @@ struct Node* deleteNode(struct Node* root, int data) {
         return leftRotate(root);
     }
 }
-#define ll long long
-#define pii pair<int, int>
-#define pll pair<long long, long long>
-#define vi vector<int>
-#define vll vector<long long>
-#define vs vector<string>
-#define vvll vector<vector<long long>>
-#define vpi vector<pair<int, int>>
-#define vpll vector<pair<long long, long long>>
-#define mii map<int, int>
-#define mis map<int,string>
-#define msi map<string,int>
-#define si set<int>
-#define sll set<long long>
-#define sc set<char>
-
- FUNCTIONS 
-#define f(i,s,e) for(long long int i=s;i<e;i++)
-#define rf(i,e,s) for(long long int i=e-1;i>=s;i--)
-define for(i,n) for(int i=0;i<n;i++)
 
  PRINTS 
 template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p){
@@ -167,13 +117,6 @@ template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, 
 template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v){
     os; string sep; for (const T &x : v) os << sep << x, sep = " "; return os;
 }
-
-DECLARATION:
-
-
-ALGORITHMS
-BINARY SEARCH:
-
   
 SQUARE ROOT:
   long long int SQRT(long long int st,long long int en,long long int n)
@@ -232,10 +175,7 @@ int perfectSum(int arr[], int n, int sum){
         }
     return dp[sum];
     }
-QUESTIONS:
-  CODEFORCES: Hammon Odyssey    Rudolf and the other competition   Help Oppenheimer
-  CODECHEF: XOR problem
-	Four element sum problem gfg
+
 vector<vector<int> > fourSum(vector<int> &arr, int k){
         int n=arr.size();
         sort(arr.begin(),arr.end());

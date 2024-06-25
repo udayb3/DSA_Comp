@@ -162,6 +162,33 @@ node* ReverseKGroup(node *head, int k)
 ```
 ## Cloning a linked list with next and secondary pointer
 ```cpp
+node * Clone(node *head)
+{
+  if(head==NULL)
+    return NULL;
+
+  node *cur=head, *t1, *ans;
+  while(cur!=NULL)
+  {
+    t1= cur->next;
+    cur->next= new node( cur->data);
+    cur=cur->next; cur->next= t1; cur=cur->next;
+  }
+  t1= head;
+  while(t1!=NULL)
+  {
+    cur= t1->next; cur->ran= (t1->ran)->next; t1= cur->next;
+  }
+  t1= head; bool ch=true;
+  while(t1!=NULL)
+  {
+    cur= t1->next; t1->next= cur->next; t1= t1->next; 
+    if(t1!=NULL)
+      cur->next= t1->next;
+    if(ch){  ans= cur; ch=false; }
+  }
+  return ans;
+}
 ```
 ## Merge 2 sorted linked list
 ```cpp

@@ -189,6 +189,7 @@ ll findDiameter(tnode *root)
     return 0;
 
   // recursive relation
+  // Diameter of bin. tree is greatest of diamter of lt sub tree, right subtree and 1+ heigh of lt sub-tree + height of right-sub tree: Isme We can use dp too by storing 
   ll lng= find_height(root->lt) + find_height(root->rt) + 1;
   return max( lng, max( findDiameter(root->lt), findDiameter(root->rt)) );
 }

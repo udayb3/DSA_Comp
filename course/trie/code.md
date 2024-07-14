@@ -5,6 +5,8 @@
 
 - [Structue of trie node](#problem1)
 - [Insertion in Trie](#problem2)
+- [Search in Trie](#problem3)
+- [Deletion in Trie](#problem4)
 
 </details>
 <!-- AUTO-GENERATED-CONTENT: END -->

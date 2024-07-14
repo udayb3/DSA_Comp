@@ -1,7 +1,7 @@
 # Ignoring the cph and vs code folder
 .cph/*
 .vscode/*
-
+*/**/.cph/
 # Ignoring the test files
 test[0-9a-zA-Z_]*.*
 test.*

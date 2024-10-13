@@ -193,3 +193,10 @@ node * Clone(node *head)
 ## Merge 2 sorted linked list
 ```cpp
 ```
+## XOR method for doubly linked list
+```cpp
+struct Node* XOR (struct Node *a, struct Node *b)
+{
+    return (struct Node*) ((uintptr_t) (a) ^ (uintptr_t) (b));
+}
+```

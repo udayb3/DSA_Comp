@@ -1,4 +1,16 @@
 /*
+// separating a sentence into a vector of string using string stream 
+inline static vector<string> toStringVec(string& s){
+    // s is stored in the string stream object
+    stringstream ss(s);
+    vector<string> ans; string w;
+    // reading word one by one
+    while (ss>>w)
+        ans.push_back(w);
+    ss.clear();
+    return ans;
+}
+
 // Tower of Hanoi: Printing the steps
 	void ToH(ll n, vpi &vc, int st, int mid, int en)
 	{

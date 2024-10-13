@@ -36,6 +36,25 @@ void RabinKarp(string &txt, string &pat)
 ```
 ## Longest Proper prefix suffix array
 ```cpp
+void lps(string s, vector<int> lps, int n)
+{
+  int i=1, ln=0;
+  lps[0]=0;
+  while(i<n){
+    if(s[i]==s[ln]){
+      ln++; lps[i]= ln;
+      i++;
+    }
+    else{
+      if(ln!=0){
+        ln= lps[ln-1];
+      }
+      else{
+        lps[i]=0; i++;
+      }
+    }
+  }
+}
 ```
 ## KMP algorithm
 ```cpp

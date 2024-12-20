@@ -10,7 +10,6 @@ inline static vector<string> toStringVec(string& s){
     ss.clear();
     return ans;
 }
-
 // Tower of Hanoi: Printing the steps
 	void ToH(ll n, vpi &vc, int st, int mid, int en)
 	{
@@ -22,8 +21,6 @@ inline static vector<string> toStringVec(string& s){
 	  }
 	  return ;
 	}
-
-//
 int height(struct Node* node) {
     if (node == NULL) 
         return 0;
@@ -326,3 +323,26 @@ void Merge(int i,int j) {
        sort(vec.begin() + start, vec.begin() + j + 1);
     }
 */
+
+// Sorting the linked list using quick sort
+// struct Node* part(struct Node* st, struct Node* en) {
+//         Node *t1 = st, *t2= st;
+//         while(t1!=en){
+//             if(t1->data<st->data) swap(t1->data, t2->next->data), t2 = t2->next;
+//             t1 = t1->next;
+//         }
+//         swap(t2->data, st->data);
+//         return t2;
+//     }
+//     void mysort(struct Node* st, struct Node* en) {
+//         if(st!=NULL && st != en)
+//         {
+//             Node* divi = part(st, en);
+//             mysort(st, divi);
+//             mysort(divi->next, en);
+//         }
+//     }
+//     struct Node* quickSort(struct Node* head) {
+//         mysort(head, NULL);
+//         return head;
+//     }

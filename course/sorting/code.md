@@ -66,3 +66,19 @@ void mergeSort(vl &arr, int l, int r)
   }
 }
 ```
+## Main intution behind Counting inversions is merge sort 
+```cpp
+int lt= st, rt= md+1;
+int c=0;
+vt<int> t1;
+while(lt<=md && rt<=en){
+    if( arr[lt]<=arr[rt] ){
+        t1.pb(arr[lt]);
+        lt++;
+    }
+    else{
+        c+= md-lt+1; t1.pb(arr[rt]);
+        rt++;
+    }
+}
+```

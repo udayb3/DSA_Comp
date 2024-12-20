@@ -2,22 +2,19 @@
 <!-- AUTO-GENERATED-CONTENT:START (TOC:collapse=true&collapseText="Click to expand") -->
 <details>
 <summary>Index</summary>
-
-- [Header files](#headers)
-- [Variables](#variables)
-- [Data Structures](#structures)
-- [Time Complexity](#complexity)
-- [Algorithms](#algorithms)
-- [Question Types](#types)
+- [__CONTENTS__:](#contents)
+  - [Headers](#headers)
+  - [Variables](#variables)
+  - [Structures](#structures)
+  - [Algorithms](#algorithms)
+  - [Types](#types)
 </details>
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ### Headers
-
   - `<iostream.h>`        : Header file for basic input and output.
   - `<vector.h>`          : Header file containing the vector data structure.
   - `<bits/stdc++.h>`     : It is a general header file which contains most of the tools required.
-  
   - `using namespace std;`: It is a fundamental way of telling from where the header files come from.
 
 ### Variables

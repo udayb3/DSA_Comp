@@ -1,58 +1,45 @@
 ## Shortening the declarations of the variables
 ```cpp
-typedef long long ll;
-typedef unsigned long long ull;
-typedef vector<bool> vb;
-typedef vector<int> vi;
-typedef vector<long long> vl;
-typedef pair<int,int> pii;
-typedef pair<long long, long long> pll;
-typedef vector<pair<int,int>> vpii;
-typedef vector<pair<long long ,long long>> vpll;
-typedef vector<vector<long long>> vvl;
-typedef vector<pair<char,int>> vpci;
-typedef vector<string> vstr;
-typedef set<int> si;
-typedef set<string> sstr;
-typedef map<int,int> mii;
-typedef map<char,int> mci;
+#include<bits/stdc++.h>
+using namespace std;
 
-#define NL "\n"
-#define SZ(v) ((int)v.size())
-#define PB push_back
-#define MP make_pair
+#define unset unordered_set
+#define unmap unordered_map
+#define pqu priority_queue
+#define str string
+#define grtr greater
+#define vt vector
+#define pb push_back
 #define fir first
 #define sec second
 #define PI 3.1415926535897
 #define ALL(x) (x).begin(), (x).end()
-#define VSR(a,i,j) (a).begin()+i, (a).begin()+j
-#define tin(arr, n) for(int i=0;i<n;i++){cin>>arr[i];}
-#define tout(arr,n) for(int i=0;i<n;i++){cout << arr[i]<<" ";}
-```
+#define iceil(a,b) (a-1)/b + 1;
+#define forl(i,a,b) for(int i=a;i<b;i++)
+#define rfor(i,a,b) for(int i=a-1;i>=b;i--)
 
-## Code template
-```cpp
+
+typedef long long ll;
+typedef pair<int,int> pii;
+typedef pair<long long, long long> pll;
+
 template<typename T>
 T solve()
-{
-
+{	 
 }
-
 int main()
 {
-  // it avoids the synchronisation with the standard C streams
-  ios_base::sync_with_stdio(false);
-  // it guarantees the flushing of the cout method before taking the input again using cin.
-  cin.tie(NULL);
-
-  int tst;   cin >> tst;
-  while(tst--)
-  {
-    solve<void>();
-  }
-  return 0;
-}
-```
+	// it avoids the synchronisation with the standard C streams
+	ios_base::sync_with_stdio(false);
+	// it guarantees the flushing of the cout method before taking the input again using cin.
+	cin.tie(NULL);
+	int tst=1;   cin >> tst;
+	while(tst--)
+	{
+		solve<void>();
+	}
+	return 0;
+}```
 
 ## Node for tree
 ```cpp
@@ -65,5 +52,11 @@ struct tnode
     dt= val;
     lt= NULL; rt=NULL;
   }
+};
+```
+## Using lambda operators in cpp
+```cpp
+auto usage= [](int a, int b){
+	//operation 
 };
 ```

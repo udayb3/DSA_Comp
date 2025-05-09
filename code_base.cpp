@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 /*
 // separating a sentence into a vector of string using string stream 
 inline static vector<string> toStringVec(string& s){
@@ -234,16 +236,6 @@ Node* lowest_common_ancestor(Node* root , int a , int b)
         else return root;
     }
 // Heap Sort
-#include<bits/stdc++.h>
-using namespace std;
-
-typedef long long int ll;
-typedef vector<int> vti; 
-typedef vector<long long> vtll;
-typedef pair <long long,long long> prll;
-typedef vector<pair<int,int>> vpi;
-typedef vector<pair<long long,long long>> vpll;
-
 
 void swap(long long int *p,long long int *q){
 	*p+=*q;	*q=*p-*q; *p-=*q;
@@ -346,3 +338,42 @@ void Merge(int i,int j) {
 //         mysort(head, NULL);
 //         return head;
 //     }
+
+
+// GRAPH
+
+	// Djikstra's algorithm with finding ways and shortest distance from src to all indices
+	
+	// Time: O( E*log V )
+
+	// :adj	stores the vector for ( neighbour , wt( i , neighbour) ) for the ith vertex for all i
+	// :ways	number of ways from src vertex to ith index  for all i
+	// :dis	distance of src to ith vertex for all i
+
+	long long usage( vector< vector< pair<int,int> > > &adj, int v, int src  )	{
+  	vt<ll> dis(v, LLONG_MAX );
+  
+  	priority_queue< pll, vt<pll>, greater<pll> > pq;
+ 		pq.push( make_pair(0, src) ); dis[src]=0;
+  
+  	vector<ll> ways(v, 0); 
+  	ways[src]= 1;
+  
+  	while( !pq.empty() ){
+    	auto [ wt, u ] = pq.top();  pq.pop();
+    	if ( wt > dis[u] )  continue;
+    
+    	for( auto neg: adj[u] ){
+      	ll x= neg.fir, wei= neg.sec;
+      
+      	if( dis[x] > dis[u]+ wei ){
+        	dis[x]= dis[u]+wei; 
+        	ways[x]= ways[u];
+        	pq.push( { dis[x], x } );
+      	} else if( dis[x] == dis[u]+ wei ) {
+        	ways[x]= ( ways[x]+ ways[u] ) % MOD;
+      	}
+    	}
+  	}
+  	return ways[v-1];
+	}

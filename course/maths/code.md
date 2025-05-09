@@ -1,8 +1,8 @@
-- ### Counting the number of digits
+### Counting the number of digits
 ```cpp
 floor(log10(n)+1);
 ```
-- ### Checking if a number is prime or not
+### Checking if a number is prime or not
 ```cpp
 bool isPrime(long long n)
   {
@@ -17,7 +17,7 @@ bool isPrime(long long n)
     return true;
   }
 ```
-- ### Finding prime factors
+### Finding prime factors
 ```cpp
 void primeFactors(ll n, vll &pf)
 {
@@ -44,7 +44,7 @@ void primeFactors(ll n, vll &pf)
     pf.push_back(n);
 }
 ```
-- ### Finding all the divisors of a number
+### Finding all the divisors of a number
 ```cpp
 void divisor(ll n, vll &div)
 {
@@ -63,7 +63,7 @@ void divisor(ll n, vll &div)
   }
 }
 ```
-- ### Sieve of Eratosthenes
+### Sieve of Eratosthenes
 ```cpp
 void Sieve(ll n, vll &prm )
 {
@@ -78,5 +78,43 @@ void Sieve(ll n, vll &prm )
     }
   }
 }
+```
+### Precomputing modular factorials, modular multiplicative inverse and factorial inverse
 
-  
+#### modular multiplicative inverse of a number
+- For a number a and a modulus m, the modular multiplicative inverse of a (mod m) is a number b such that:
+    a × b ≡ 1 % m
+
+- In other words, b is the number that, when multiplied by a and taken modulo m, gives 1.
+
+- For example, if a = 3 and m = 11, then the modular multiplicative inverse b = 4, because:
+3 × 4 = 12 ≡ 1 %11
+- The modular inverse can be computed in several ways:
+  - Using the Extended Euclidean Algorithm (most general approach)
+  - Using Fermat's Little Theorem (when m is prime): a^(m-2) ≡ a^(-1) % mod
+  - Using the recursive formula shown
+
+#### A factorial inverse refers to the modular multiplicative inverse of a factorial number
+-Specifically, if we denote the factorial inverse of n! as (n!)^(-1), then:
+  (n!) × (n!)^(-1) ≡ 1 (mod mod)
+
+- Factorial inverses are particularly useful for calculating combinations and permutations efficiently in modular arithmetic. For example, the binomial coefficient "n choose k" can be calculated as:
+  C(n,k) = n! / (k! × (n-k)!)
+- In modular arithmetic, since we cannot divide, we multiply by the modular multiplicative inverse instead:
+  C(n,k) ≡ n! × (k!)^(-1) × ((n-k)!)^(-1) % mod
+- By precomputing both factorials and factorial inverses as in your code, these calculations become very efficient - just three lookups and two multiplications:
+C(n,k) ≡ fact[n] × invFact[k] × invFact[n-k] %  mod
+
+```
+void precomp( int n ) {
+  int i;
+  fact.assign( n+1, 1 );
+  forl( i,1,n+1 ) fact[i]=  fact[i-1] * i  % mod;
+
+  inv.assign( n+1, 1);
+  forl( i,2,n+1) inv[i]= mod - (mod/i) * inv[mod%i] % mod;
+        
+  invfact.assign( n+1, 1);
+  forl(i,1,n+1) invfact[i]= invfact[i-1] * inv[i] % mod; 
+}
+```

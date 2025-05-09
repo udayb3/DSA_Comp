@@ -25,3 +25,19 @@ ll maxCirs(vl arr, ll n )
   return max(cir,norm);
 }
 ```
+## finding majority element
+```
+int majorityElement( vt<int> arr, int n ) {
+  int n = arr.size(), candidate = -1, c = 0;
+  for (int num : arr) {
+    if (c == 0) {
+      candidate = num;
+      c = 1;
+    } else if (num == candidate) {
+      c++;
+    } else {
+      c--;
+    }
+  return candidate
+}
+```

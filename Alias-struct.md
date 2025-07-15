@@ -13,15 +13,17 @@ using namespace std;
 #define fir first
 #define sec second
 #define PI 3.1415926535897
-#define ALL(x) (x).begin(), (x).end()
 #define iceil(a,b) (a-1)/b + 1;
+#define ALL(x) (x).begin(), (x).end()
 #define forl(i,a,b) for(int i=a;i<b;i++)
 #define rfor(i,a,b) for(int i=a-1;i>=b;i--)
-
+#define compgrpr [](const auto& a, const auto& b) { return a.fir > b.fir; } 
 
 typedef long long ll;
 typedef pair<int,int> pii;
 typedef pair<long long, long long> pll;
+
+int i=0,j=0,k=0;
 
 template<typename T>
 T solve()
@@ -55,8 +57,9 @@ struct tnode
 };
 ```
 ## Using lambda operators in cpp
+- In the expression below, `[&]` captures all the local variables from surrounding scope i.e. any outside variable can also be modified.
 ```cpp
-auto usage= [](int a, int b){
+auto usage= [&](int a, int b){
 	//operation 
 };
 ```

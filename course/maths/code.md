@@ -118,3 +118,14 @@ void precomp( int n ) {
   forl(i,1,n+1) invfact[i]= invfact[i-1] * inv[i] % mod; 
 }
 ```
+#### Divisibility Rules(Included only some, rest can be referred from [GFG](https://www.geeksforgeeks.org/maths/divisibility-rules/))
+
+| Divisibility by | Rule |
+| --- | --- |
+| 7   | `( num[:-1] - 2 * num[-1] ) % 7 == 0` |
+| 13  | modularly iterate over each digit of the number i.e. `ans = (ans + num[i])%10` and at last `ans` should be 0 |
+| 17  | `(num[:-1] - 5*num[-1])%17==0` |
+| 19  | `(num[:-1] + 2*num[-1])%19==0` |
+
+### Refrences
+- [GeeksforGeeks](https://www.geeksforgeeks.org)

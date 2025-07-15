@@ -2,12 +2,16 @@
 .cph/*
 .vscode/*
 */**/.cph/
+a.out
+
 # Ignoring the test files
 test[0-9a-zA-Z_]*.*
 test.*
 test
 */**/test
 */**/test
+tests/**/*
+*/**/tests/**/*
 
 # Some additional components
 extra/*

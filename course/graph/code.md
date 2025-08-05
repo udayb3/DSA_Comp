@@ -169,6 +169,43 @@ void Djikstra( vector< vector< pll> > &adj, int v, int src, vi &dis )
   }
 }
 ```
+## Djikstra's Shortest Path algorithm for all vertices
+### Djikstra's algorithm with finding ways and shortest distance from src to all indices
+  - Time Complexity: O( E*log V )
+    -  adj	stores the vector for ( neighbour , wt( i , neighbour) ) for the ith vertex for all i
+	  - ways	number of ways from src vertex to ith index  for all i
+    - dis	distance of src to ith vertex for all i
+
+```cpp
+long long usage( vector< vector< pair<int,int> > > &adj, int v, int src  )	{
+	vt<ll> dis(v, LLONG_MAX );
+
+	priority_queue< pll, vt<pll>, greater<pll> > pq;
+	pq.push( make_pair(0, src) ); dis[src]=0;
+
+	vector<ll> ways(v, 0); 
+	ways[src]= 1;
+
+	while( !pq.empty() ){
+  	auto [ wt, u ] = pq.top();  pq.pop();
+  	if ( wt > dis[u] )  continue;
+  
+  	for( auto neg: adj[u] ){
+    	ll x= neg.fir, wei= neg.sec;
+    
+    	if( dis[x] > dis[u]+ wei ){
+      	dis[x]= dis[u]+wei; 
+      	ways[x]= ways[u];
+      	pq.push( { dis[x], x } );
+    	} else if( dis[x] == dis[u]+ wei ) {
+      	ways[x]= ( ways[x]+ ways[u] ) % MOD;
+    	}
+  	}
+	}
+	return ways[v-1];
+}
+
+```
 ## Single-source shortest path algorithm: Bellman-ford algotrithm
 ```cpp
 bool Bellmanford(vector<vpii> &adj, vi &dis, int src)

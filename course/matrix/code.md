@@ -61,3 +61,21 @@ bool MatSearch(vl vec, int m, int n, ll k)
   return false;
 }
 ```
+## Prefix sum in matrix
+```cpp
+vt<vt<int>> res(n,vt<int>(m));
+forl(i,0,n) {
+    forl(j,0,m) {
+        res[i][j] = df[i][j] + (i?res[i-1][j]:0) + (j?res[i][j-1]:0) - ((i>0 && j>0)?res[i-1][j-1]:0);
+    }
+}
+```
+## Reverse of prefix sum
+```cpp
+vt<vt<int>> df(n+1,vt<int>(m+1,0));
+forl(i,0,n) {
+    forl(j,0,m) {
+        df[i][j] += mat[i][j] - (i>0?mat[i-1][j]:0) - (j>0?mat[i][j-1]:0) + ((i>0 && j>0)?mat[i-1][j-1]:0);
+    }
+}
+```

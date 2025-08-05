@@ -82,3 +82,45 @@ while(lt<=md && rt<=en){
     }
 }
 ```
+## Heap sort
+```cpp
+void swap(long long int *p,long long int *q){
+	*p+=*q;	*q=*p-*q; *p-=*q;
+}
+
+void MaxHeapify(vtll vec,int q)
+{
+	int temp=q,sz=vec.size(),l=-1,r=-1,lar=q;
+	if(q*2<=sz-1)
+		l=q*2;
+	if(q*2+1<=sz-1)
+		r=q*2-1;
+	
+	if(l!=-1)
+		lar=vec[temp]>vec[l]?temp:l;
+	if(r!=-1)
+		lar=vec[lar]>vec[r]?lar:r;
+	
+	if(lar!=q){
+		swap(&vec[lar],&vec[q]);
+		MaxHeapify(vec,lar);
+	}
+}
+void BuildHeap(vtll vect, int n)
+{
+	int sz=((n-1)/2)+1;
+	while(sz--)
+	{
+		MaxHeapify(vect,sz);
+	}
+}
+void Hpsort(vtll arr)
+{
+	int k=1,siz=arr.size();
+	BuildHeap(arr,siz);
+	while(k<siz)
+	{
+		
+	}
+}
+```

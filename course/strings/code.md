@@ -62,3 +62,6 @@ void lps(string s, vector<int> lps, int n)
 ## Count of Lexicographically smaller string
 ```cpp
 ```
+## Manacher algorithm
+```cpp
+```

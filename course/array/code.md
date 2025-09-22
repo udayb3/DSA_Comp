@@ -26,7 +26,7 @@ ll maxCirs(vl arr, ll n )
 }
 ```
 ## finding majority element
-```
+```cpp
 int majorityElement( vt<int> arr, int n ) {
   int n = arr.size(), candidate = -1, c = 0;
   for (int num : arr) {
@@ -38,6 +38,7 @@ int majorityElement( vt<int> arr, int n ) {
     } else {
       c--;
     }
+  }
   return candidate
 }
 ```

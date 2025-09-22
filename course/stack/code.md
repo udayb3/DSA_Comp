@@ -93,6 +93,24 @@ long long int longestrec1(vvl &arr, int r, int c)
   return ans;
 }
 ```
+## Finding previous smallest element for each elements
+```cpp
+vt<int> preSmall(vt<int> &arr){
+  stack<int> st;
+  vt<int> ans(arr.size(), -1);
+  int i=0;
+  forl(i,0,arr.size()){
+      int el= arr[i];
+      while(!st.empty() and arr[st.top()]>=el) st.pop();
+      
+      if(st.empty())ans[i]=-1;
+      else ans[i]= st.top();
+      
+      st.push(i);
+  }
+  return ans;        
+}
+```
 ## Create a stack with the function getmin() with O(1) auxi. space[handles negatives]
 ```cpp
 

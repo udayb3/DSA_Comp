@@ -1,4 +1,4 @@
-
+### Finding maximum sum in a array(negative elements too)
 ```cpp
 ll maxNorm(vl arr, ll n)
 {
@@ -10,7 +10,7 @@ ll maxNorm(vl arr, ll n)
   return vmax;
 }
 ```
-
+### Finding the maximum sum in a circular array
 ```cpp
 ll maxCirs(vl arr, ll n )
 {
@@ -25,7 +25,7 @@ ll maxCirs(vl arr, ll n )
   return max(cir,norm);
 }
 ```
-## finding majority element
+### finding majority element
 ```cpp
 int majorityElement( vt<int> arr, int n ) {
   int n = arr.size(), candidate = -1, c = 0;
@@ -40,5 +40,28 @@ int majorityElement( vt<int> arr, int n ) {
     }
   }
   return candidate
+}
+```
+### Concept of Difference Array
+- USECASE: Given a sequence of range update queries and final result is asked over an array.
+- Idea is to make a dif array and for each range, perform following:
+```cpp
+for(i,l,r,v)
+	diff[l] += v;
+	dif[r+1] -= v;
+```
+- After doing this on all ranges, make prefix sum of dif and add each element to its corresponding to original array
+```cpp
+vt<int> update_ranges(vt<int> ar, vt<vt<int>> qu) {
+	int n= ar.size(), m= qu.size(), i=0;
+	vt<int> dif(n,0);
+	forl(i,0,m-1){
+		int l= qu[i][0], r = qu[i][1], v = qu[i][2];
+		dif[l] += v; dif[r+1] -= v;
+	}
+	forl(i,0,n){
+		ar[i] += dif[i];
+	}
+	return ar;
 }
 ```

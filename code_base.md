@@ -378,4 +378,12 @@ string longestPalindrome(string s) {
     }
     return ret;
 }
+### Using multiple values as as keys in unordered map
+```cpp
+// here it can be directly used as map<size_t,ll>, note that now key ~ key(i,j)
+inline size_t key(int i,int j) {return (size_t) i << 32 | (unsigned int) j;}
+inline uint64_t key(uint32_t i, uint32_t j) { return (uint64_t)i << 32 | j; }
+
+// other thing is that tuple can be used for higher dim dp
+unordered_map <tuple<int,int,int>, int>
 ```

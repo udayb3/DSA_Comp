@@ -17,13 +17,12 @@ using namespace std;
 #define ALL(x) (x).begin(), (x).end()
 #define forl(i,a,b) for(int i=a;i<b;i++)
 #define rfor(i,a,b) for(int i=a-1;i>=b;i--)
-#define compgrpr [](const auto& a, const auto& b) { return a.fir > b.fir; } 
 
 typedef long long ll;
 typedef pair<int,int> pii;
 typedef pair<long long, long long> pll;
 
-int i=0,j=0,k=0;
+inline size_t key(int i,int j) {return (size_t) i << 32 | (unsigned int) j;}
 
 template<typename T>
 T solve()

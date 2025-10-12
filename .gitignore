@@ -1,17 +1,7 @@
 # Ignoring the cph and vs code folder
-.cph/*
-.vscode/*
-*/**/.cph/
-a.out
-
-# Ignoring the test files
-test[0-9a-zA-Z_]*.*
-test.*
-test
-*/**/test
-*/**/test
-tests/**/*
-*/**/tests/**/*
+*.out
+*/**/*.out
 
 # Some additional components
 extra/*
+*/**/extra/*

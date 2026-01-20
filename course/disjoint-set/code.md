@@ -20,7 +20,9 @@ class DSU {
 		
 		int findPar(int a){
 			if(par[a]==a) return a;
-			return findPar(par[a]);
+			
+			// Path compression
+			return par[a] = findPar(par[a]); 
 		}
 		
 		int findSiz(int a){

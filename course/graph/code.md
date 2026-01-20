@@ -92,6 +92,9 @@ bool isCycle(vvl &adj)
 }
 ```
 #### For Directed graph
+##### Recursive approach
+- Given an adjacency list, I define 2 vectors `vis` and `visst` which store once visited elements and elements in the recursive stack respectively.
+- Then, for each elem, I run the method `ICDutil` which for a particular source explores all its children through recursion and checks if any element in the recursive call stack `visst` does not appear again.
 ```cpp
 bool ICDutil(int u, vvl &adj, vb &vis, vb &visst)
 {
@@ -106,7 +109,7 @@ bool ICDutil(int u, vvl &adj, vb &vis, vb &visst)
   return false;
 }
 
-bool IsCycleDg( vvl &adj)
+bool IsCycleDg(vvl &adj)
 {
   int nv= adj.size();
   vb vis(nv, false), visst(nv, false);
@@ -117,6 +120,11 @@ bool IsCycleDg( vvl &adj)
   return false;
 }
 ```
+##### Iterative approach
+```cpp
+bool isCycle(vt<vt<ll>> adj)
+```
+
 ## Printing vertices after sorting them topologically[ Kahn's Algorithm ]
 ```cpp
 void TopSort( vvl &adj, vi &ans)

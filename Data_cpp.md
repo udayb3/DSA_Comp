@@ -1,13 +1,21 @@
-## __CONTENTS__:
 <!-- AUTO-GENERATED-CONTENT:START (TOC:collapse=true&collapseText="Click to expand") -->
 <details>
 <summary>Index</summary>
-- [__CONTENTS__:](#contents)
-  - [Headers](#headers)
-  - [Variables](#variables)
-  - [Structures](#structures)
-  - [Algorithms](#algorithms)
-  - [Types](#types)
+
+- [Headers](#headers)
+- [Variables](#variables)
+- [Structures](#structures)
+  - [ARRAY](#array)
+  - [ITERATORS:](#iterators)
+  - [VECTORS:](#vectors)
+  - [STRINGS:](#strings)
+  - [PAIR](#pair)
+  - [STACK:](#stack)
+- [Algorithms](#algorithms)
+  - [Sorting Algorithms:](#sorting-algorithms)
+- [Sieve of eratosthenes:](#sieve-of-eratosthenes)
+- [Types](#types)
+
 </details>
 <!-- AUTO-GENERATED-CONTENT:END -->
 
@@ -20,93 +28,81 @@
 ### Variables
 
 - They are nothing but containers to store data.
-- Available containers in cpp:
-  int           char    long long int    bool
-  short int     string  float            double    
 
-- SIZE_OF_VARIABLES:
-  char= 8 bits
-  int=   32 bits 
-  long long int= 64 bits
-  float= 32 bits
-  double= 64 bits
-
-- Printing the value of the variable:
-  cout << var;
-
-- Loop and if/else conditionals Basics are similar to C.
+| Available Data types | Size(Bits)  |
+| --- | --- |
+| int | 32 |
+| char  | 8 |    
+| long long int | 64 |
+| bool  | 8 |
+| short int | 16 |
+|float  | 32 |
+| double  | 64 |   
 
 ### Structures
 
-  ARRAY:
-    It is a data structure to store a specific type of data.
-    Comlpexity:
-      ACCESS       = O(1)
-      DISPLAYING   = O(n)
+#### ARRAY
+- It is a data structure to store a specific type of data.
+- Comlpexity:
+  - ACCESS: O(1)
+  - DISPLAYING: O(n)
 
-  ITERATORS:
-    It is used to a particular memory adress of the containers.
+#### ITERATORS:
+- It is used to a particular memory adress of the containers.
+- Methods:
+  - `.begin()`         : It returns the beginning position of the container.
+  - `.end()`           : It returns the after-ending position of the container.
+  - `.advance(it,pos)` : It increments the value of the iterator till argument is same as the given number.
+  - `.next(), .prev()` : They return a new iterator which points to the index with the increment and decrement in index.  
 
-    FUNCTIONS:
-      .begin()         : It returns the beginning position of the container.
-      .end()           : It returns the after-ending position of the container.
-      .advance(it,pos) : It increments the value of the iterator till argument is same as the given number.
-      .next(), .prev() : They return a new iterator which points to the index with the increment and decrement in index.  
-  VECTORS:  
-    It is a linear data structure. They are commonly used to input data as in arrays.
-    They posses advantage over arrays as they are dynamic in nature.       
+#### VECTORS:  
+- It is a linear data structure. They are commonly used to input data as in arrays.
+- They posses advantage over arrays as they are dynamic in nature.       
+- Complexity:
+  - ACCESS         = O(1)
+  - DISPLAYING     = O(n)
+  - ADDITION       = O(n)
+- OPERATIONS:
+  - `.push_back(a)`: It inserts an element a at the end of vector.
+  - `.pop_back()`    : It deletes the last element. It does not returns anything.
+  - `.size()`        : It returns the total number of elements in the vector.
+  - `.clear()`       : It clears the vector v.
+  - `.resize(n)`     : It resizes the vector to the size of n.
+  - `.begin()`       : Returns Iterator to the starting element
+  - `.end()`         : Returns Iterator to the ending element
+  - `.empty()`       : It returns 1 if the size of the vector is 0.
 
-    DECLARATION:
-      vector <data type> v
-    Complexity:
-      ACCESS         = O(1)
-      DISPLAYING     = O(n)
-      ADDITION       = O
-    OPERATIONS:
-      .push_back( a ): It inserts an element a at the end of vector.
-      .pop_back()    : It deletes the last element. It does not returns anything.
-      .size()        : It returns the total number of elements in the vector.
-      .clear()       : It clears the vector v.
-      .resize(n)     : It resizes the vector to the size of n.
-      .begin()       :
-      .end()         :
-      .empty()       : It returns 1 if the size of the vector is 0.
-  STRINGS:
-    GENERAL:
-      It stores the words or sentences.
-      When we used the cin function to take input, if it encounters spacebar given by user it will end execution.
-      The above is the reason as to why we use:
-        getline(cin,(string name)) : It will ensure that all the spaces and everything will come in string.
-    DECLARATION:
-      string s;
-      s="HELLO"
-    FUNCTIONS:
-      .length()                    : It returns the length of string.
-      .size()                      : It returns length.
-      .clear()                     : It erases all the characters from string.
-      s1.append(s2)                : It appends s2 with s1.
-      s1.append(s2 , start , end ) : It appends s2 from index start to end.
-      reverse(s.begin() ,s.end() ) : It reverses the string.
-      s.substring(i,n)             : It returns the part of string from i to n.
-      s1.find(s2)                  : It finds the first instance of s2 in s1 and returns the starting character.
-      s1.rfind(s2)                 : It returns the last instance of s2 in s1.
-      s1.compare(s2)               : It compares the strings s1 and s2 lexicographically.
+#### STRINGS:
+- It stores the words or sentences.
+- When we used the cin function to take input, if it encounters spacebar given by user it will end execution.
+- The above is the reason as to why we use `getline(cin,(string name))`. It will ensure that all the spaces and everything will come in string.
+- FUNCTIONS:
+  - `.length()`                    : It returns the length of string.
+  - `.size()`                      : It returns length.
+  - `.clear()`                     : It erases all the characters from string.
+  - `s1.append(s2)`                : It appends s2 with s1.
+  - `s1.append(s2 , start , end )` : It appends s2 from index start to end.
+  - `reverse(s.begin() ,s.end() )` : It reverses the string.
+  - `s.substring(i,n)`             : It returns the part of string from i to n.
+  - `s1.find(s2)`             : It finds the first instance of s2 in s1 and returns the starting character.
+  - `s1.rfind(s2)`                 : It returns the last instance of s2 in s1.
+  - `s1.compare(s2)`               : It compares the strings s1 and s2 lexicographically.
   
-    PAIR
-    SYNTAX:
-      pair <data_type1,data_type2> pair_name(value1,value2) eg. pair<int,string> p;
-      pair_name={value1,value2}
-    ACCESS:
+#### PAIR
+- SYNTAX:
+```cpp
+pair <data_type1,data_type2> pair_name(value1,value2) eg. pair<int,string> p;
+pair_name={value1,value2}
+```
+- ACCESS:
       pair_name.first   pair_name.second
-    COMPARISION:
-      ==, !=, >=, <= checks both the first and second values in the order from first to second.
-    
-    If pair is not initialized, it stores default values. Default value of int, double is 0, char is NULL.
+- COMPARISION: ==, !=, >=, <= checks both the first and second values in the order from first to second.
+- If pair is not initialized, it stores default values. Default value of int, double is 0, char is NULL.
   
-  STACK: 
-    It is general data structure which follows the principle of FIFO.
-    SYNTAX:
-      stack  <data_type> variable_name
+#### STACK: 
+- It is general data structure which follows the principle of FIFO.
+- SYNTAX:
+  stack  <data_type> variable_name
     SOME functions which we use in stack are:
       empty(), size(), top(), push(), pop() 
       time complexity= O(1).
@@ -169,7 +165,7 @@
     They are implemented using hash tables.
     The time complexity of finding an element is O(1).
 
-4. TIME COMPLEXITY
+1. TIME COMPLEXITY
 
   It does not give exact time taken by your program to run.
   There are sites in which we can measure time taken to run by our program.
@@ -203,22 +199,20 @@
 		Iterating permutations: O(n!)
 
 ### Algorithms
+#### Sorting Algorithms:
+- There are different type of sorting algorithms:- Bubble sort( O(n^2) ), Merge sort( O(n*log n) ), Quick sort( O(n*log n)), Selection sort, Insertion sort,
+- There are in-built library function in cpp to sort which, most probably, works on merge sort.
+- In cpp, sorting works on the algorithm of Introsort-a hybrid of Merge sort, Quick sort and Insertion sort. 
+```cpp
+sort(arr,arr+n)- It sorts array in ascending order.
+sort(vec.begin(),vec.end()): It sorts the vector in ascending order.
+sort(arr+a,arr+b): It sorts an array from (a+1)st to (b+1)st position.
+```  
 
-	Sorting Algorithms:
-		There are different type of sorting algorithms:-
-			Bubble sort( O(n^2) ), Merge sort( O(n*log n) ), Quick sort( O(n*log n)), Selection sort, Insertion sort,
-		
-		There are in-built library function in cpp to sort which, most probably, works on merge sort.
-		The function given below usually work on the algorithm of Introsort-a hybrid of Merge sort, Quick sort and Insertion sort. 
-			SYNTAX: It takes in 2 arguements first: point from where sorting should begin. Second: the length up to which we want array sorted. There is also the third parameter which can be included if we want to sort the array in descending order or lexicographically.
-				sort(arr,arr+n)- It sorts array in ascending order.
-				sort(vec.begin(),vec.end()): It sorts the vector in ascending order.
-				sort(arr+a,arr+b): It sorts an array from (a+1)st to (b+1)st position.
-  
-	Sieve of eratosthenes: 
-		This algorithm is used to find the prime numbers upto a certain limit.
-		Complexity: O(n*(log n)*log(log n))
-  SIEVE:
+### Sieve of eratosthenes: 
+- This algorithm is used to find the prime numbers upto a certain limit.
+  Complexity: O(n*(log n)*log(log n))
+SIEVE:
     Origin: Eratosthenes of Cyrene
     It helps in finding the prime number upto a certain number.
     Algorithm:

@@ -2,46 +2,29 @@
 ```cpp
 floor(log10(n)+1);
 ```
-### Checking if a number is prime or not
+### Check Prime
+- **Time comp: O($\sqrt{n}$)**
+- 
 ```cpp
-bool isPrime(long long n)
-  {
+bool isPrime(long long n) {
   if(n==1){ return false; }
   if(n==2 || n==3) { return true;}
   if(n%2==0 || n%3==0){  return false;}
-  for(int i=5;i<sqrt(n)+1;i=i+6)
-  {
-    if(n%i==0 || n%(i+2)==0)
-      {return false;}
-  }
-    return true;
-  }
+  for(int i=5;i*i<n+1;i=i+6) {
+    if(n%i==0 || n%(i+2)==0) return false;
+    }
+	return true;
+}
 ```
 ### Finding prime factors
 ```cpp
-void primeFactors(ll n, vll &pf)
+void pFac(ll n, vll &pf)
 {
-  if(n<=1)
-    return ;
-  while(n%2==0 && (n!=0))
-  {
-    pf.push_back(2); n/=2;
-  }
-  while(n%3==0 && (n!=0))
-  {
-    pf.push_back(3); n/=3;
-  }
-  for(ll i=5;(i*i)<n;i+=6)
-  {
-    while(n%i==0 && n!=0){
-      pf.push_back(i); n/=i;
-    }
-    while(n%(i+2)==0 && n!=0){
-      pf.push_back(i+2); n/=(i+2);
-    }
-  }
-  if(n>3)
-    pf.push_back(n);
+	ll i,j;
+	forl(i,2,n){
+		if(!pf[i].size()) continue;
+		for(j=2;j<=n;j+=i) pf[j].pb(i);
+	}
 }
 ```
 ### Finding all the divisors of a number
@@ -64,9 +47,10 @@ void divisor(ll n, vll &div)
 }
 ```
 ### Sieve of Eratosthenes
+- This version uses the isPrime function [[maths/code#Check Prime]]
+- **Time Comp: O($n\sqrt{n}$)**
 ```cpp
-void Sieve(ll n, vll &prm )
-{
+void Sieve(ll n, vll &prm ) {
   vbl vb(n+1,true);
   for(int i=2;i<=n;i++)
   {
@@ -74,10 +58,72 @@ void Sieve(ll n, vll &prm )
     {
       prm.push_back(i);
       for(ll j=i*i;j<=n;j++)
-        vb[j]== false;
+        vb[j]= false;
     }
   }
 }
+```
+#### Optimized version(original sieve)
+- Time comp: O($nlog(log n)$)
+```cpp
+vector<ll> Sieve(ll n) {
+    vector<bool> prime(n + 1, true);
+    prime[0] = prime[1] = false;
+
+    for (ll p = 2; p * p <= n; p++) {
+        if (prime[p]) {
+            for (ll j = p * p; j <= n; j += p)
+                prime[j] = false;
+        }
+    }
+
+    vector<ll> primes;
+    for (ll i = 2; i <= n; i++)
+        if (prime[i]) primes.push_back(i);
+
+    return primes;
+}
+```
+#### More Optimized Version: Linear Sieve
+- **Time comp: O(n)**
+- **Space comp: O(n)**
+```cpp
+void MOSieve(int n, vt<int> &prm) {
+	vt<int> lp(n+1);
+	int i;
+	forl(i,2,n){
+		if(lp[i]==0) lp[i] = i, prm.pb(i);
+		for(int j=0;i*prm[j]<=n;j++){
+			lp[i*prm[j]] = prm[j];
+			if(prm[j] == lp[i]) break;
+		}
+	}
+}
+```
+
+### Modular Factorials(5,10) for independent value of n,k
+- Uses [Lucas theorem](https://en.wikipedia.org/wiki/Lucas's_theorem) to find out modular factorials
+- **Time Comp: O(log5 n)**
+- **Space Comp: O(1)**
+```cpp
+auto binomMod5 = [](int n, int r) -> int {
+	int b4t[5][5] = {{1,0,0,0,0},{1,1,0,0,0},{1,2,1,0,0},{1,3,3,1,0},{1,4,1,4,1}};
+	int res = 1;
+	while (n || r) {
+	int nd = n % 5, rd = r % 5;
+	if (rd > nd) return 0;
+	
+	res = (res * b4t[nd][rd]) % 5;
+	n /= 5; r /= 5;
+	}
+	return res;
+};
+
+auto binomMod10 = [&](int n, int k) -> int {
+	int r2 = ((n & ~k) == 0) ? 1 : 0;
+	int r5 = binomMod5(n, k);
+	return (5 * r2 + 6 * r5) % 10;
+};
 ```
 ### Precomputing modular factorials, modular multiplicative inverse and factorial inverse
 
@@ -105,7 +151,7 @@ void Sieve(ll n, vll &prm )
 - By precomputing both factorials and factorial inverses as in your code, these calculations become very efficient - just three lookups and two multiplications:
 C(n,k) ≡ fact[n] × invFact[k] × invFact[n-k] %  mod
 
-```
+```cpp
 void precomp( int n ) {
   int i;
   fact.assign( n+1, 1 );
@@ -118,7 +164,7 @@ void precomp( int n ) {
   forl(i,1,n+1) invfact[i]= invfact[i-1] * inv[i] % mod; 
 }
 ```
-#### Divisibility Rules(Included only some, rest can be referred from [GFG](https://www.geeksforgeeks.org/maths/divisibility-rules/))
+### Divisibility Rules(Included only some, rest can be referred from [GFG](https://www.geeksforgeeks.org/maths/divisibility-rules/))
 
 | Divisibility by | Rule |
 | --- | --- |
@@ -127,5 +173,7 @@ void precomp( int n ) {
 | 17  | `(num[:-1] - 5*num[-1])%17==0` |
 | 19  | `(num[:-1] + 2*num[-1])%19==0` |
 
-### Refrences
+### References
 - [GeeksforGeeks](https://www.geeksforgeeks.org)
+- [Optimized Sieve](https://cp-algorithms.com/algebra/prime-sieve-linear.html)
+- [Binomial Coefficients](https://cp-algorithms.com/combinatorics/binomial-coefficients.html#pascals-triangle)

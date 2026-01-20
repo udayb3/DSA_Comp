@@ -1,7 +1,5 @@
-# Ignoring the cph and vs code folder
 *.out
 */**/*.out
 
 # Some additional components
-extra/*
-*/**/extra/*
+[A-Z]_*.*
